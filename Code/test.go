@@ -14,10 +14,10 @@ func main() {
 
 //package main
 
-import (
-	"fmt"
-	"unsafe"
-)
+// import (
+// 	"fmt"
+// 	"unsafe"
+// )
 
 // func main() {
 // 	x := 0x12345678
@@ -31,17 +31,31 @@ import (
 // }
 
 func main() {
-	d := struct {
-		s string
-		x int
-	}{"abc", 100}
+	// d := struct {
+	// 	s string
+	// 	x int
+	// }{"abc", 100}
 
-	p := uintptr(unsafe.Pointer(&d)) // *struct -> Pointer -> uintptr
-	p += unsafe.Offsetof(d.x)        // uintptr + offset
+	// p := uintptr(unsafe.Pointer(&d)) // *struct -> Pointer -> uintptr
+	// p += unsafe.Offsetof(d.x)        // uintptr + offset
 
-	p2 := unsafe.Pointer(p) // uintptr -> Pointer
-	px := (*int)(p2)        // Pointer -> *int
-	*px = 200               // d.x = 200
+	// p2 := unsafe.Pointer(p) // uintptr -> Pointer
+	// px := (*int)(p2)        // Pointer -> *int
+	// *px = 200               // d.x = 200
 
-	fmt.Printf("%#v\n", d)
+	// fmt.Printf("%#v\n", d)
+	//
+	//
+
+	x := 10
+
+	switch x {
+	case 10:
+		println("a")
+		fallthrough
+	case 0:
+		println("b")
+	case 12:
+		println("c")
+	}
 }
